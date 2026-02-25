@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Data Science Resources - Abhiyantra Hub</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--light-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--secondary-color);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), 
+                        url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        /* Course Tabs */
+        .course-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 40px 0 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        /* Course Content Sections */
+        .course-section {
+            display: none;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        .course-section.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .module {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .module:last-child {
+            border-bottom: none;
+        }
+
+        .module h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .theory-content {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .theory-content h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .exercises {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .resources {
+            margin-top: 30px;
+        }
+
+        .resource-card {
+            display: inline-block;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            width: 200px;
+            vertical-align: top;
+            transition: all 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .resource-card h4 {
+            margin-top: 0;
+            color: var(--secondary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tab-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .resource-card {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Abhiyantra Hub - Complete Data Science Resources</h1>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Master Data Science</h1>
+            <p>Complete theory, practical exercises, and resources for all courses</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="course-tabs">
+            <button class="tab-btn active" onclick="openCourse('python')">Python</button>
+            <button class="tab-btn" onclick="openCourse('ml')">Machine Learning</button>
+            <button class="tab-btn" onclick="openCourse('dl')">Deep Learning</button>
+            <button class="tab-btn" onclick="openCourse('stats')">Statistics</button>
+            <button class="tab-btn" onclick="openCourse('sql')">SQL</button>
+            <button class="tab-btn" onclick="openCourse('viz')">Visualization</button>
+        </div>
+
+        <!-- Python Course -->
+        <div id="python" class="course-section active">
+            <h2>Python for Data Science - Complete Mastery</h2>
+            
+            <div class="module">
+                <h3>Module 1: Python Fundamentals</h3>
+                
+                <div class="theory-content">
+                    <h4>Core Concepts</h4>
+                    <p>Python is an interpreted, high-level programming language. Key features:</p>
+                    <ul>
+                        <li><strong>Variables:</strong> Containers for storing data values (x = 5)</li>
+                        <li><strong>Data Types:</strong> int, float, str, bool, list, tuple, dict, set</li>
+                        <li><strong>Control Flow:</strong> if-else, for/while loops</li>
+                        <li><strong>Functions:</strong> Reusable code blocks (def my_func():)</li>
+                        <li><strong>Object-Oriented Programming:</strong> Classes and objects</li>
+                    </ul>
+                    
+                    <h4>Memory Management</h4>
+                    <p>Python uses dynamic typing and automatic memory management through reference counting and garbage collection.</p>
+                </div>
+                
+                <div class="exercises">
+                    <h4>Practice Exercises</h4>
+                    <ol>
+                        <li>Write a function to calculate Fibonacci sequence up to n terms</li>
+                        <li>Create a class for a bank account with deposit/withdraw methods</li>
+                        <li>Implement list comprehension to square numbers in a range</li>
+                    </ol>
+                    <button class="btn">Download Solutions</button>
+                </div>
+                
+                <div class="resources">
+                    <h4>Resources</h4>
+                    <div class="resource-card">
+                        <h4>Python Cheat Sheet</h4>
+                        <p>All essential syntax in one PDF</p>
+                        <button class="btn">Download</button>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Jupyter Notebook</h4>
+                        <p>Interactive exercises</p>
+                        <button class="btn">Download</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="module">
+                <h3>Module 2: NumPy Mastery</h3>
+                
+                <div class="theory-content">
+                    <h4>Array Programming</h4>
+                    <p>NumPy provides N-dimensional array objects and tools for working with these arrays:</p>
+                    <ul>
+                        <li><strong>ndarray:</strong> The core object (np.array([1,2,3]))</li>
+                        <li><strong>Broadcasting:</strong> Vectorized operations without loops</li>
+                        <li><strong>Universal Functions:</strong> Fast element-wise operations (np.sin, np.exp)</li>
+                        <li><strong>Indexing:</strong> Fancy indexing, boolean masks</li>
+                    </ul>
+                    
+                    <h4>Performance</h4>
+                    <p>NumPy arrays are faster than Python lists because:</p>
+                    <ol>
+                        <li>Contiguous memory allocation</li>
+                        <li>Vectorized operations in C</li>
+                        <li>Fixed-type elements</li>
+                    </ol>
+                </div>
+                
+                <div class="exercises">
+                    <h4>Practice Exercises</h4>
+                    <ol>
+                        <li>Create a 3x3 identity matrix</li>
+                        <li>Normalize a random array (0-1 range)</li>
+                        <li>Implement matrix multiplication without using np.dot</li>
+                    </ol>
+                    <button class="btn">Download Solutions</button>
+                </div>
+            </div>
+            
+            <!-- More Python modules... -->
+        </div>
+
+        <!-- Machine Learning Course -->
+        <div id="ml" class="course-section">
+            <h2>Machine Learning - Complete Theory & Practice</h2>
+            
+            <div class="module">
+                <h3>Module 1: Supervised Learning</h3>
+                
+                <div class="theory-content">
+                    <h4>Fundamentals</h4>
+                    <p>Machine learning algorithms that learn from labeled training data:</p>
+                    
+                    <h5>1. Linear Regression</h5>
+                    <p>Models the relationship between dependent (y) and independent variables (X):</p>
+                    <p>y = β₀ + β₁X₁ + ... + βₙXₙ + ε</p>
+                    <p>Cost Function: MSE = 1/n Σ(yᵢ - ŷᵢ)²</p>
+                    
+                    <h5>2. Logistic Regression</h5>
+                    <p>For binary classification (0/1):</p>
+                    <p>σ(z) = 1 / (1 + e⁻ᶻ) where z = wᵀx</p>
+                    <p>Cost Function: Cross-Entropy</p>
+                    
+                    <h5>3. Decision Trees</h5>
+                    <p>Recursive partitioning of feature space using:</p>
+                    <ul>
+                        <li>Gini Impurity: 1 - Σ(pᵢ²)</li>
+                        <li>Information Gain: H(parent) - Σ(child_weight * H(child))</li>
+                    </ul>
+                </div>
+                
+                <div class="exercises">
+                    <h4>Implementation Exercises</h4>
+                    <ol>
+                        <li>Implement gradient descent for linear regression</li>
+                        <li>Build a decision tree classifier from scratch</li>
+                        <li>Tune hyperparameters using grid search</li>
+                    </ol>
+                    <button class="btn">Download Solutions</button>
+                </div>
+            </div>
+            
+            <!-- More ML modules... -->
+        </div>
+
+        <!-- Deep Learning Course -->
+        <div id="dl" class="course-section">
+            <h2>Deep Learning - Complete Neural Networks Guide</h2>
+            
+            <div class="module">
+                <h3>Module 1: Neural Network Fundamentals</h3>
+                
+                <div class="theory-content">
+                    <h4>Perceptron</h4>
+                    <p>Basic building block with:</p>
+                    <p>Output = f(w·x + b) where f is activation function</p>
+                    
+                    <h4>Backpropagation</h4>
+                    <p>Chain rule for gradient computation:</p>
+                    <ol>
+                        <li>Forward pass: Compute loss</li>
+                        <li>Backward pass: Compute gradients ∂L/∂w for all parameters</li>
+                        <li>Update weights: w = w - η(∂L/∂w)</li>
+                    </ol>
+                    
+                    <h4>Activation Functions</h4>
+                    <table>
+                        <tr>
+                            <th>Function</th>
+                            <th>Formula</th>
+                            <th>Derivative</th>
+                        </tr>
+                        <tr>
+                            <td>Sigmoid</td>
+                            <td>σ(z) = 1/(1+e⁻ᶻ)</td>
+                            <td>σ(z)(1-σ(z))</td>
+                        </tr>
+                        <tr>
+                            <td>ReLU</td>
+                            <td>max(0,z)</td>
+                            <td>1 if z>0 else 0</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- More DL modules... -->
+        </div>
+
+        <!-- Other courses... -->
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Abhiyantra Hub &copy; 2023 - Open Data Science Education</p>
+        </div>
+    </footer>
+
+    <script>
+        function openCourse(courseId) {
+            // Hide all course sections
+            const sections = document.getElementsByClassName('course-section');
+            for (let section of sections) {
+                section.classList.remove('active');
+            }
+            
+            // Update active tab
+            const tabs = document.getElementsByClassName('tab-btn');
+            for (let tab of tabs) {
+                tab.classList.remove('active');
+            }
+            event.currentTarget.classList.add('active');
+            
+            // Show selected course
+            document.getElementById(courseId).classList.add('active');
+        }
+
+        // Print course material
+        function printCourse() {
+            const activeCourse = document.querySelector('.course-section.active');
+            const printWindow = window.open('', '', 'width=800,height=600');
+            printWindow.document.write('<html><head><title>Course Material</title>');
+            printWindow.document.write('<style>body{font-family:Arial;line-height:1.6}</style>');
+            printWindow.document.write('</head><body>');
+            printWindow.document.write(activeCourse.innerHTML);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.focus();
+            printWindow.print();
+        }
+    </script>
+</body>
+</html>
